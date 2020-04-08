@@ -1,22 +1,25 @@
 #!/bin/bash
 #============================================================================================
 #       ARQUIVO:  PingMonitorLocal.sh
-#       DESCRICAO: Realiza ping nos hosts internos da rede e através da estatíscas informa se houveram ou não perdas
+#       DESCRICAO: Monitorar e reportar com a ferramenta de ping os hosts da rede e
+#       através da estatíscas informa se houveram ou não perdas
 #       REQUISITOS: 
+#       - Host com conexão a internet
+#       - Avaliar a possibidade de incluir os logs dentro de um rotate
 #       * HOMOLOGADO:  Em distribuições CentOS 6.x 
-#       VERSAO:  0.1
+#       VERSAO:  0.2
 #       CRIADO:  02/03/2020
 #       AUTOR: Matheus Martins
 #       REVISAO:  ---
 #       CHANGELOG:
 #       02/03/2020 10:00 
-#       - Script criado
+#       - Criação de script de acordo com demanda
 #       03/03/2020 10:00
-#       - Adicionado caminho de log e testado em cliente (Hiperoll)
+#       - Adicionado caminho de log e implementado em produção
 #=============================================================================================
 
-HOSTS="192.168.0.1 192.168.0.146"
-LOG="/var/log/SMART/pingmonitorlocal.log"
+HOSTS="192.168.0.1 192.168.0.146" #Inserir listagem de hosts a serem monitorados
+LOG="/var/log/CUSTOM/pingmonitor.log"
 COUNT=8
 
 for i in $HOSTS
