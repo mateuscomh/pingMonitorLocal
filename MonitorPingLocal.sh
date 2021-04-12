@@ -3,6 +3,7 @@
 #       ARQUIVO:  PingMonitorLocal.sh
 #       DESCRICAO: Monitorar e reportar com a ferramenta de ping os hosts da rede e
 #       através da estatíscas informa se houveram ou não perdas
+#       SUGESTAO DE APLICABILIDADE: Adicionar script via CRON para melhor monitoramento
 #       REQUISITOS: 
 #       - Host com conexão a internet
 #       - Avaliar a possibidade de incluir os logs dentro de um rotate
