@@ -18,8 +18,8 @@
 #       - Adicionado caminho de log e implementado em produção
 #=============================================================================================
 
-HOSTS="192.168.0.1 192.168.0.146" #Inserir listagem de hosts a serem monitorados
-LOG="/var/log/CUSTOM/pingmonitor.log"
+HOSTS="172.16.102.99" #Inserir listagem de hosts a serem monitorados
+LOG="/scripts/Output/monitor.log"
 COUNT=8
 
 for i in $HOSTS
