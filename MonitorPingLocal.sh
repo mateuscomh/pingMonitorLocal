@@ -26,14 +26,13 @@ COUNT=8
 for i in $HOSTS
 do
   count=$(ping -c $COUNT $i | grep 'received' | awk -F',' '{ print $2 }' | awk '{ print $1 }')
-  if [ $count -eq 0 ]; then
+  if [ "$count" -eq 0 ]; then
     # 100% falha 
     echo "Host: $i is down (ping failed) em $(date)" >> $LOG
-    else if [ $count -lt $COUNT ]; then
+    elif [ "$count" -lt $COUNT ]; then
         # < 100% perda
         echo "Host: $i com $count de perda em $COUNT tentativas $(date)" >> $LOG
     else
         echo "Host: $i ping OK em $(date):" >> $LOG;
     fi
-  fi
 done
