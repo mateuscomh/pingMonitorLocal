@@ -21,17 +21,17 @@
 
 HOSTS="172.16.102.99" #Inserir listagem de hosts a serem monitorados
 LOG="/scripts/Output/monitor.log"
-COUNT=8
+INT=8
 
 for i in $HOSTS
 do
-  count=$(ping -c $COUNT $i | grep 'received' | awk -F',' '{ print $2 }' | awk '{ print $1 }')
+  count=$(ping -c $INT $i | grep 'received' | awk -F',' '{ print $2 }' | awk '{ print $1 }')
   if [ "$count" -eq 0 ]; then
     # 100% falha 
     echo "Host: $i is down (ping failed) em $(date)" >> $LOG
-    elif [ "$count" -lt $COUNT ]; then
+    elif [ "$count" -lt $INT ]; then
         # < 100% perda
-        echo "Host: $i com $count de perda em $COUNT tentativas $(date)" >> $LOG
+        echo "Host: $i com $count de perda em $INT tentativas $(date)" >> $LOG
     else
         echo "Host: $i ping OK em $(date):" >> $LOG;
     fi
